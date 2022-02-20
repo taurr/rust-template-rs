@@ -1,0 +1,81 @@
+[package]
+name = "{{project-name}}"
+description = "TODO: short description of the crate here"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+authors = ["{{authors}}"]
+# license = "MIT"  # https://spdx.org/licenses/
+# repository = "TODO: https://github.com/..."
+# categories = [] # https://crates.io/category_slugs
+# keywords = [] # free text
+
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# thiserror = "~1.0"
+# derive_more = "~0.99"
+tracing = { version = "~0.1", default = false, features = [ "attributes" ] }
+#tracing-futures = "~0.2"
+
+# === Macro helpers ===
+# paste
+# nb
+# syn
+# static_assertions
+
+# === Utilities ===
+# strum
+# typenum
+# itertools
+# nom
+# owning_ref
+
+# === Datatypes ===
+# ndarray
+# heapless
+# smallvec
+# tinyvec
+# time/chrono
+# cow
+# dashmap
+# uuid
+# lexical
+
+# === Static variable handling ===
+# once_cell
+# lazy_static
+
+# === Serialization ===
+# serde = "~1"
+# postcard
+
+# === Async ===
+# async-trait
+# futures
+# tokio
+# rayon
+
+# === Thread communication ===
+# flume
+# crossbeam-channel
+# parking-lot
+
+# === WEB frameworks ===
+# reqwest
+# hyper
+# tonic
+
+[dev-dependencies]
+anyhow = "~1.0"
+tracing-subscriber = {version = "~0.3"}
+tokio = {version = "~1.17", features = ["test-util", "macros"]}
+tokio-test = "~0.4"
+# indoc = "~1.0"     # support for indented string litterals
+# loom
+# proptest
+# criterion
+
+[features]
+default = ["std"]
+std = []

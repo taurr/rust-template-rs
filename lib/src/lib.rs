@@ -1,0 +1,37 @@
+#![cfg_attr(not(any(test, feature = "std")), no_std)]
+
+use tracing::{debug, error, info, instrument, trace, warn};
+
+#[instrument]
+pub fn find_lines<'a>(
+    contents: &'a str,
+    pattern: &'a str,
+) -> impl Iterator<Item = (usize, &'a str)> + 'a {
+    trace!("trace example!");
+    debug!("debug example!");
+    info!("info  example!");
+    warn!("warn  example!");
+    error!("error  example!");
+    contents
+        .lines()
+        .enumerate()
+        .filter(move |(_line_no, line)| line.contains(pattern))
+        .map(|(line_no, line)| (line_no + 1, line))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use anyhow::Result;
+    use tokio::test;
+
+    #[test]
+    async fn it_works() -> Result<()> {
+        tracing_subscriber::fmt::init();
+        assert_eq!(
+            vec![(2usize, "Hello World")],
+            find_lines("Dummy\nHello World\nline", "World").collect::<Vec<_>>()
+        );
+        Ok(())
+    }
+}
