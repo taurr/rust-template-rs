@@ -7,9 +7,8 @@ mod log;
 
 #[tokio::main(flavor = "multi_thread")]
 async fn main() -> Result<()> {
-    log::setup_tracing();
-
     let args = args::Args::parse();
+    log::setup_tracing();
 
     for _ in 0..args.count {
         info!(name=?args.name);
@@ -26,8 +25,9 @@ mod tests {
 
     #[test]
     async fn dummy() -> Result<()> {
-        crate::log::setup_tracing();
+        tracing_subscriber::fmt::init();
         tracing::warn!("No actual unit tests yet");
         assert_eq!(4, 3+1);
+        Ok(())
     }
 }

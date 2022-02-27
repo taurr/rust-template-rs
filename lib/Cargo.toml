@@ -14,29 +14,29 @@ authors = ["{{authors}}"]
 
 [dependencies]
 # thiserror = "~1.0"
-# derive_more = "~0.99"
-tracing = { version = "~0.1", default = false, features = [ "attributes" ] }
+tracing = { version = "~0.1", default = false, features = ["attributes"] }
 #tracing-futures = "~0.2"
 
 # === Macro helpers ===
 # paste
 # nb
 # syn
-# static_assertions
 
 # === Utilities ===
+# derive_more = "~0.99"
 # strum
+# enum_dispatch = "0.3.8"
 # typenum
 # itertools
 # nom
-# owning_ref
 
 # === Datatypes ===
+# chrono = "0.4.19"
+# time = { version = "0.3.7", features = ["local-offset", "formatting", "macros" ] }
 # ndarray
 # heapless
 # smallvec
 # tinyvec
-# time/chrono
 # cow
 # dashmap
 # uuid
@@ -58,8 +58,7 @@ tracing = { version = "~0.1", default = false, features = [ "attributes" ] }
 
 # === Thread communication ===
 # flume
-# crossbeam-channel
-# parking-lot
+# crossbeam
 
 # === WEB frameworks ===
 # reqwest
@@ -68,8 +67,8 @@ tracing = { version = "~0.1", default = false, features = [ "attributes" ] }
 
 [dev-dependencies]
 anyhow = "~1.0"
-tracing-subscriber = {version = "~0.3"}
-tokio = {version = "~1.17", features = ["test-util", "macros"]}
+tracing-subscriber = { version = "~0.3" }
+tokio = { version = "~1.17", features = ["test-util", "macros"] }
 tokio-test = "~0.4"
 # indoc = "~1.0"     # support for indented string litterals
 # loom
