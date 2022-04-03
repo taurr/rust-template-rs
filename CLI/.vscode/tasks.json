@@ -42,7 +42,7 @@
       "label": "Clippy",
       "detail": "Look for Clippy errors",
       "type": "shell",
-      "command": "cargo clippy --all-features --all-targets -- -D clippy::all -W clippy::pedantic -W clippy::nursery",
+      "command": "cargo clippy --all-features --all-targets -- -D clippy::all",
       "problemMatcher": [],
       "group": "build",
       "presentation": {

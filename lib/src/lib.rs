@@ -1,7 +1,9 @@
+#![doc = include_str!("../README.md")]
 #![cfg_attr(not(any(test, feature = "std")), no_std)]
 
 use tracing::{debug, error, info, instrument, trace, warn};
 
+/// TODO: We should have proper comments for all public fn.
 #[instrument]
 pub fn find_lines<'a>(
     contents: &'a str,
@@ -21,12 +23,14 @@ pub fn find_lines<'a>(
 
 #[cfg(test)]
 mod tests {
+    //! Consider testing the public API as an ITest to illustrate usecase scenarios.
     use super::*;
-    use anyhow::Result;
     use tokio::test;
 
+    type Result = anyhow::Result<()>;
+
     #[test]
-    async fn it_works() -> Result<()> {
+    async fn it_works() -> Result {
         tracing_subscriber::fmt::init();
         assert_eq!(
             vec![(2usize, "Hello World")],

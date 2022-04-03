@@ -1,3 +1,5 @@
+#![doc = include_str!("../README.md")]
+
 use anyhow::Result;
 use clap::StructOpt;
 use tracing::info;
@@ -5,9 +7,11 @@ use tracing::info;
 mod args;
 mod log;
 
+use self::args::Args;
+
 #[tokio::main(flavor = "multi_thread")]
 async fn main() -> Result<()> {
-    let args = args::Args::parse();
+    let args = Args::parse();
     log::setup_tracing();
 
     for _ in 0..args.count {
