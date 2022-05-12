@@ -12,6 +12,10 @@ authors = ["{{authors}}"]
 
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["std"]
+std = []
+
 [dependencies]
 # thiserror = "~1.0"
 tracing = { version = "~0.1", default = false, features = ["attributes"] }
@@ -53,7 +57,7 @@ tracing = { version = "~0.1", default = false, features = ["attributes"] }
 # === Async ===
 # async-trait
 # futures
-# tokio
+#tokio = { version = "~1.18", features = ["full"] }
 # rayon
 
 # === Thread communication ===
@@ -74,7 +78,3 @@ tokio-test = "~0.4"
 # loom
 # proptest
 # criterion
-
-[features]
-default = ["std"]
-std = []

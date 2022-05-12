@@ -14,9 +14,12 @@ readme = "README.md"
 
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = []
+tokio-console = ["console-subscriber", "tokio/tracing"]
+
 [dependencies]
 anyhow = "~1.0"
-#thiserror = "~1.0"
 clap = { version = "~3.1", features = ["derive"] }
 tracing = "~0.1"
 tracing-futures = "~0.2"
@@ -78,7 +81,3 @@ tokio-test = "~0.4"
 # loom
 # proptest
 # criterion
-
-[features]
-default = []
-tokio-console = ["console-subscriber", "tokio/tracing"]

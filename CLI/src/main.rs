@@ -29,7 +29,7 @@ mod tests {
 
     #[test]
     async fn dummy() -> Result<()> {
-        tracing_subscriber::fmt::init();
+        log::setup_tracing();
         tracing::warn!("No actual unit tests yet");
         assert_eq!(4, 3+1);
         Ok(())
