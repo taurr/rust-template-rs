@@ -68,7 +68,7 @@ tracing = { version = "~0.1", default = false, features = ["attributes"] }
 [dev-dependencies]
 anyhow = "~1.0"
 tracing-subscriber = { version = "~0.3" }
-tokio = { version = "~1.17", features = ["test-util", "macros"] }
+tokio = { version = "~1.18", features = ["test-util", "macros"] }
 tokio-test = "~0.4"
 # indoc = "~1.0"     # support for indented string litterals
 # loom
