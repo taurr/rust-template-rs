@@ -37,7 +37,7 @@
       "label": "Test",
       "detail": "Runs all tests",
       "type": "shell",
-      "command": "cargo test --workspace --all-features --no-fail-fast -- --nocapture",
+      "command": "cargo t --workspace --all-features --no-fail-fast -- --nocapture",
       "options": {
         "env": {
           "RUST_LOG": "warn,{{crate_name}}=trace"
