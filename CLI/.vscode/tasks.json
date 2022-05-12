@@ -40,8 +40,7 @@
       "command": "cargo test --workspace --all-features --no-fail-fast -- --nocapture",
       "options": {
         "env": {
-          "RUST_LOG": "warn,{{crate_name}}=trace",
-          "RUSTFLAGS": "--cfg tokio_unstable"
+          "RUST_LOG": "warn,{{crate_name}}=trace"
         }
       },
       "problemMatcher": ["$rustc"],
