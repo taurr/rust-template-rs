@@ -3,3 +3,14 @@ cargo_generate_version = ">=0.13.0"
 
 [hooks]
 post = ["final-msg.rhai"]
+
+[conditional.cargo_embedded]
+ignore = [
+    ".vscode",
+    ".gitignore",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+]
