@@ -1,5 +1,8 @@
 [template]
 cargo_generate_version = ">=0.13.0"
 
-[hooks]
-post = ["final-msg.rhai"]
+[placeholders]
+use_tokio = { type = "bool", prompt = "Use Tokio async?", default = false }
+
+[conditional.'use_tokio != true']
+ignore = [".cargo"]

@@ -4,12 +4,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Check",
-      "detail": "Run a compile check",
+      "label": "Build debug",
+      "detail": "Make a debug build",
       "type": "shell",
-      "command": "cargo check --all-features --all-targets",
-      "problemMatcher": ["$rustc"],
       "group": "build",
+      "command": "cargo build",
+      "problemMatcher": ["$rustc"],
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -19,12 +19,12 @@
       }
     },
     {
-      "label": "Build debug",
-      "detail": "Make a debug build, to run use CLI, or the debugger",
+      "label": "Build release",
+      "detail": "Make a release build",
       "type": "shell",
-      "command": "cargo build",
-      "problemMatcher": ["$rustc"],
       "group": "build",
+      "command": "cargo build --release",
+      "problemMatcher": ["$rustc"],
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -59,7 +59,6 @@
       "type": "shell",
       "command": "cargo clippy --all-features --all-targets -- -D clippy::all",
       "problemMatcher": [],
-      "group": "build",
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -74,7 +73,6 @@
       "type": "shell",
       "command": "cargo fmt --all --quiet",
       "problemMatcher": [],
-      "group": "build",
       "presentation": {
         "echo": false,
         "reveal": "never",

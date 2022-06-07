@@ -25,12 +25,11 @@ pub fn find_lines<'a>(
 mod tests {
     //! Consider testing the public API as an ITest to illustrate usecase scenarios.
     use super::*;
+    use anyhow::Result;
     use tokio::test;
 
-    type Result = anyhow::Result<()>;
-
     #[test]
-    async fn it_works() -> Result {
+    async fn it_works() -> Result<()> {
         tracing_subscriber::fmt::init();
         assert_eq!(
             vec![(2usize, "Hello World")],

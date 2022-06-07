@@ -14,70 +14,21 @@ readme = "README.md"
 
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[features]
+{% if use_tokio %}[features]
 default = []
 tokio-console = ["console-subscriber", "tokio/tracing"]
 
-[dependencies]
+{% endif %}[dependencies]
 anyhow = "~1.0"
 clap = { version = "~3.1", features = ["derive"] }
-tracing = "~0.1"
-tracing-futures = "~0.2"
 tracing-subscriber = { version = "~0.3" }
+tracing = "~0.1"{% if use_tokio %}
 
-# === Macro helpers ===
-# paste
-# nb
-# syn
-
-# === Utilities ===
-# derive_more = "~0.99"
-# strum
-# enum_dispatch = "0.3.8"
-# typenum
-# itertools
-# nom
-
-# === Datatypes ===
-# chrono = "0.4.19"
-# time = { version = "0.3.7", features = ["local-offset", "formatting", "macros" ] }
-# ndarray
-# heapless
-# smallvec
-# tinyvec
-# cow
-# dashmap
-# uuid
-# lexical
-
-# === Static variable handling ===
-# once_cell
-# lazy_static
-
-# === Serialization ===
-# serde = "~1"
-# postcard
-
-# === Async ===
-# async-trait
-# futures
-tokio = { version = "~1.18", features = ["full"] }
+tracing-futures = "~0.2"
+tokio = { version = "~1.19", features = ["full"] }
 console-subscriber = { version = "~0.1", optional = true }
-# rayon
-
-# === Thread communication ===
-# flume
-# crossbeam
-
-# === WEB frameworks ===
-# reqwest
-# hyper
-# tonic
 
 [dev-dependencies]
-tokio = { version = "~1.18", features = ["test-util", "macros"] }
+tokio = { version = "~1.19", features = ["test-util", "macros"] }
 tokio-test = "~0.4"
-# indoc = "~1.0"     # support for indented string litterals
-# loom
-# proptest
-# criterion
+{% endif %}

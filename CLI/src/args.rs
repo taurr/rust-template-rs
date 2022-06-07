@@ -5,9 +5,9 @@ use clap::Parser;
 pub struct Args {
     /// Name of the person to greet
     #[clap(short, long)]
-    pub name: String,
+    pub name: Option<String>,
 
     /// Number of times to greet
-    #[clap(short, long, default_value_t = 1)]
+    #[clap(short, long, default_value_t = 10)]
     pub count: u8,
 }

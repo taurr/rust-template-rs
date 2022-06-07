@@ -1,3 +1,4 @@
+{% if use_tokio %}
 #[cfg(not(feature = "tokio-console"))]
 pub fn setup_tracing() {
     tracing_subscriber::fmt::init();
@@ -11,3 +12,8 @@ pub fn setup_tracing() {
         .with(tracing_subscriber::fmt::layer())
         .init();
 }
+{% else %}
+pub fn setup_tracing() {
+    tracing_subscriber::fmt::init();
+}
+{% endif %}

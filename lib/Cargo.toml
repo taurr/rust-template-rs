@@ -17,64 +17,10 @@ default = ["std"]
 std = []
 
 [dependencies]
-# thiserror = "~1.0"
 tracing = { version = "~0.1", default = false, features = ["attributes"] }
-#tracing-futures = "~0.2"
-
-# === Macro helpers ===
-# paste
-# nb
-# syn
-
-# === Utilities ===
-# derive_more = "~0.99"
-# strum
-# enum_dispatch = "0.3.8"
-# typenum
-# itertools
-# nom
-
-# === Datatypes ===
-# chrono = "0.4.19"
-# time = { version = "0.3.7", features = ["local-offset", "formatting", "macros" ] }
-# ndarray
-# heapless
-# smallvec
-# tinyvec
-# cow
-# dashmap
-# uuid
-# lexical
-
-# === Static variable handling ===
-# once_cell
-# lazy_static
-
-# === Serialization ===
-# serde = "~1"
-# postcard
-
-# === Async ===
-# async-trait
-# futures
-#tokio = { version = "~1.18", features = ["full"] }
-# rayon
-
-# === Thread communication ===
-# flume
-# crossbeam
-
-# === WEB frameworks ===
-# reqwest
-# hyper
-# tonic
 
 [dev-dependencies]
 anyhow = "~1.0"
 tracing-subscriber = { version = "~0.3" }
-tokio = { version = "~1.18", features = ["test-util", "macros"] }
+tokio = { version = "~1.19", features = ["test-util", "macros"] }
 tokio-test = "~0.4"
-# indoc = "~1.0"     # support for indented string litterals
-# loom
-# proptest
-# criterion
