@@ -8,9 +8,7 @@ version = "0.1.0"
 edition = "2021"
 authors = ["{{authors}}"]
 readme = "README.md"
-# license = "MIT"  # https://spdx.org/licenses/
-# categories = [] # https://crates.io/category_slugs
-# keywords = [] # free text
+license = "MIT OR Apache-2.0"
 
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 
