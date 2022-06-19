@@ -10,10 +10,10 @@ Binary with a command line interface.
 
 Template is setup to use:
 - [`clap`]
-- [`tokio`]
+- [`tokio`] (Optional)
 - [`tracing`]
-- [`console-subscriber`], by enabling the feature [`tokio-console`]
-- Unit tests, with [`tokio-test`] support
+- [`console-subscriber`], by enabling the feature [`tokio-console`]  (Optional)
+- Unit tests, with optional [`tokio-test`] support
 
 ### lib
 
