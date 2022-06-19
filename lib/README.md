@@ -1,4 +1,4 @@
-# {{project-name}}
+# {{project-name|title_case}}
 
 TODO: Write this readme for the crate
 

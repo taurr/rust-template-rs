@@ -16,8 +16,8 @@ async fn main() -> Result<()> {
     let args = Args::parse();
     log::setup_tracing();
 
-    for _ in 0..args.count {
-        info!(name=?args.name);
+    for count_ in 0..args.count {
+        info!(count, name=?args.name);
         tokio::time::sleep(Duration::from_secs(2)).await;
     }
 

@@ -1,26 +1,29 @@
 [package]
 name = "{{project-name}}"
-description = "TODO: short description of the crate here"
 version = "0.1.0"
-edition = "2021"{% if !cargo_embedded %}
-resolver = "2"{% endif %}
 authors = ["{{authors}}"]
+readme = "README.md"
+description = """
+Short description goes here.
+"""
 license = "MIT OR Apache-2.0"
-# repository = "TODO: https://github.com/..."
-# categories = [] # https://crates.io/category_slugs
-# keywords = [] # free text
-
-# https://doc.rust-lang.org/cargo/reference/manifest.html
+{% if within_cargo_project==false %}repository = "https://github.com/USERNAME/{{project-name}}"
+documentation = "https://docs.rs/{{project-name}}"
+keywords = []
+categories = []
+{% endif %}edition = "2021"{% if within_cargo_project %}
+resolver = "2"{% endif %}
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
 default = ["std"]
 std = []
 
 [dependencies]
-tracing = { version = "~0.1", default = false, features = ["attributes"] }
+tracing = { version = "0.1", default = false, features = ["attributes"] }
 
 [dev-dependencies]
-anyhow = "~1.0"
-tracing-subscriber = { version = "~0.3" }
-tokio = { version = "~1.19", features = ["test-util", "macros"] }
-tokio-test = "~0.4"
+anyhow = "1.0"
+tokio = { version = "1.19", features = ["test-util", "macros"] }
+tokio-test = "0.4"
+tracing-subscriber = { version = "0.3" }
