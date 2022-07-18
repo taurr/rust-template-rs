@@ -1,0 +1,6 @@
+[template]
+cargo_generate_version = ">=0.16.0-dev"
+init = true
+
+[placeholders]
+gh_username = { type = "string", prompt = "Github Username?", regex="\\w+" }

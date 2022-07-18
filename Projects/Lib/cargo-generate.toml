@@ -1,0 +1,25 @@
+[template]
+cargo_generate_version = ">=0.16.0-dev"
+
+[hooks]
+post = ["final-msg.rhai"]
+
+[placeholders]
+gh_username = { type = "string", prompt = "Github Username?", regex="\\w+" }
+tokio = { type = "bool", prompt = "Use Tokio for tests?", default = false }
+
+[conditional.'within_cargo_project == false'.placeholders]
+ide = { type = "string", prompt = "Which IDE to use?", default = "vscode", choices = ["none", "vscode"] }
+
+[conditional.'tokio != true']
+ignore = [".cargo"]
+
+[conditional.'within_cargo_project']
+ignore = [
+    ".github",
+    ".vscode",
+    ".gitignore",
+]
+
+[conditional.'within_cargo_project == false && ide != "vscode"']
+ignore = [".vscode"]
