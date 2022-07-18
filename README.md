@@ -1,6 +1,9 @@
 # rust-template-rs
 
-Here are a few opinionated `cargo-generate` templates for use when creating [Rust] applications.
+Here are a few `cargo-generate` templates for use when creating [Rust] applications.
+
+TODO: Rewrite this README...
+TODO: Improve vscode integration
 
 ## templates
 
@@ -12,7 +15,7 @@ Template is setup to use:
 - [`clap`]
 - [`tokio`] (Optional)
 - [`tracing`]
-- [`console-subscriber`], by enabling the feature [`tokio-console`]  (Optional)
+- [`console-subscriber`], by using `tokio` and enabling the feature [`tokio-console`] (Optional)
 - Unit tests, with optional [`tokio-test`] support
 
 ### lib
@@ -30,9 +33,14 @@ The library will be setup for use with:
 If the template is used on a regular basis, [cargo-generate] allows to setup favorite templates and default variables.
 
 To do this, open or create the file `$CARGO_HOME/cargo-generate.toml`, insert this:
+
 ```toml
 [favorites.rust]
 git = "https://github.com/taurr/rust-template-rs"
+
+[favorites.rust.placeholders]
+gh_username = "your username on github.com"
+ide = "none|vscode"
 ```
 
 After this, the template can be expanded using a simple:

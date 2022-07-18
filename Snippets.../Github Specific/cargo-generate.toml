@@ -1,0 +1,8 @@
+[template]
+sub_templates = [
+    "audit-workflow",
+    "cd-workflow",
+    "ci-workflow",
+    "dependabot-config",
+    "issue-templates",
+]
