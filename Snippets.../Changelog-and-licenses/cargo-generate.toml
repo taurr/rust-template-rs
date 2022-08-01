@@ -1,5 +1,5 @@
 [template]
-cargo_generate_version = ">=0.16.0-dev"
+cargo_generate_version = ">=0.16.0"
 init = true
 
 [placeholders]
