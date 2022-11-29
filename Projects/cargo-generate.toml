@@ -1,5 +1,5 @@
 [template]
 sub_templates = [
-    "CLI",
+    "Cli",
     "Lib",
 ]

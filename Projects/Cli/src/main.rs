@@ -42,16 +42,3 @@ fn setup_tracing() {
 }{% else %}pub fn setup_tracing() {
     tracing_subscriber::fmt::init();
 }{% endif %}
-
-#[cfg(test)]
-mod tests {
-    use super::*;{% if tokio %}
-    use tokio::test;{% endif %}
-
-    #[test]
-    {% if tokio %}async {% endif %}fn dummy() {
-        setup_tracing();
-        warn!("No actual unit tests yet");
-        assert_eq!(4, 3+1);
-    }
-}

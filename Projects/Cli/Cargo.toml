@@ -21,7 +21,7 @@ default = []
 tokio-console = ["console-subscriber", "tokio/tracing"]
 
 {% endif %}[dependencies]
-clap = { version = "3.2", features = ["derive"] }
+clap = { version = "4.0", features = ["derive"] }
 tracing = { version = "0.1", features = ["attributes"] }
 tracing-subscriber = "0.3"
 {% if tokio %}tracing-futures = "0.2"

@@ -14,7 +14,7 @@
         }
       },
       "problemMatcher": ["$rustc"],
-      "group": "build",
+      "group": "test",
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -78,22 +78,6 @@
         "showReuseMessage": true,
         "focus": true,
         "clear": true
-      }
-    },
-    {
-      "label": "Check all-features",
-      "detail": "Run a compile check against all features",
-      "type": "shell",
-      "command": "cargo check --all-features --all-targets",
-      "problemMatcher": ["$rustc"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true,
-        "focus": true
       }
     },{% if crate_type != "lib" %}
     {
