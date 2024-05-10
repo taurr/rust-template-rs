@@ -1,8 +1,9 @@
-{% if within_cargo_project==false %}[workspace]
+{% if within_cargo_project==false -%}
+[workspace]
 resolver = "2"
 members = []
 
-{% endif %}[package]
+[package]
 name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
@@ -10,25 +11,117 @@ readme = "README.md"
 description = """
 Short description goes here.
 """
-{% if within_cargo_project %}resolver = "2"
-{% endif %}edition = "2021"
+edition = "2021"
 #license = "MIT OR Apache-2.0"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-{% if tokio %}[features]
+{% if tokio -%}
+[features]
 default = []
 tokio-console = ["console-subscriber", "tokio/tracing"]
 
-{% endif %}[dependencies]
+{% endif -%}
+
+[dependencies]
 clap = { version = "4.0", features = ["derive"] }
+tracing.workspace = true
+tracing-subscriber.workspace = true
+derive_more.workspace = true
+
+{% if tokio -%}
+futures.workspace = true
+tracing-futures.workspace = true
+console-subscriber = { workspace = true, optional = true }
+tokio.workspace = true
+#tokio-util.workspace = true
+#tokio-stream.workspace = true
+
+{% endif -%}
+[dev-dependencies]
+test-log.workspace = true
+
+{%- if tokio %}
+tokio = { workspace = true, features = ["test-util", "macros"] }
+tokio-test.workspace = true
+{%- endif %}
+
+[workspace.dependencies]
 tracing = { version = "0.1", features = ["attributes"] }
-tracing-subscriber = "0.3"
-{% if tokio %}tracing-futures = "0.2"
-tokio = { version = "1.19", features = ["full"] }
-console-subscriber = { version = "0.1", optional = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+console-subscriber = "0.2"
+derive_more = "0.99"
+test-log = "0.2"
+{%- if tokio %}
+
+futures = "0.3"
+tracing-futures = "0.2"
+tokio = { version = "1.37", features = ["full"] }
+#tokio-util = { version = "0.7", features = ["full"] }
+#tokio-stream = { version = "0.1", features = ["full"] }
+tokio-test = "0.4"
+{%- endif %}
+
+[lints.rust]
+unsafe_code = "deny"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+unwrap_used = "deny"
+unwrap_in_result = "deny"
+expect_used = "warn"
+expect_in_result = "warn"
+{% else -%}
+
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+readme = "README.md"
+description = """
+Short description goes here.
+"""
+resolver = "2"
+edition = "2021"
+#license = "MIT OR Apache-2.0"
+
+{% if tokio -%}
+[features]
+default = []
+tokio-console = ["console-subscriber", "tokio/tracing"]
+
+{% endif -%}
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+tracing-subscriber.workspace = true
+
+{%- if tokio %}
+console-subscriber = { version = "0.2", optional = true }
+{%- endif %}
+
+derive_more.workspace = true
+tracing.workspace = true
+
+{% if tokio -%}
+futures.workspace = true
+tracing-futures.workspace = true
+tokio.workspace = true
+#tokio-util.workspace = true
+#tokio-stream.workspace = true
 
 [dev-dependencies]
-tokio = { version = "1.19", features = ["test-util", "macros"] }
-tokio-test = "0.4"
-{% endif %}
+test-log.workspace = true
+tokio = { workspace = true, features = ["test-util", "macros"] }
+tokio-test.workspace = true
+{%- endif -%}
+
+[lints.rust]
+unsafe_code = "deny"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+unwrap_used = "deny"
+unwrap_in_result = "deny"
+expect_used = "warn"
+expect_in_result = "warn"
+
+{% endif -%}

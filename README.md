@@ -11,6 +11,10 @@ existing project.
 Project templates have optional support for generating IDE scaffolding (currently only Vscode,
 contributions for others are welcome).
 
+### Workspace
+
+Simple setup for a base workspace, ready to put your projects in.
+
 ### Cli
 
 Binary with a command line (`clap`) interface.

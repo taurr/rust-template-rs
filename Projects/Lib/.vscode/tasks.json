@@ -14,7 +14,10 @@
         }
       },
       "problemMatcher": ["$rustc"],
-      "group": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -29,8 +32,8 @@
       "detail": "Make a release build",
       "type": "shell",
       "command": "cargo build --release",
-      "problemMatcher": ["$rustc"],{% if crate_type == "lib" %}
-      "group": "build",{% endif %}
+      "problemMatcher": ["$rustc"],
+      "group": "build",
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -45,8 +48,8 @@
       "detail": "Make a debug build",
       "type": "shell",
       "command": "cargo build",
-      "problemMatcher": ["$rustc"],{% if crate_type == "lib" %}
-      "group": "build",{% endif %}
+      "problemMatcher": ["$rustc"],
+      "group": "build",
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -69,8 +72,8 @@
       "detail": "Builds the documentation",
       "type": "shell",
       "command": "cargo doc",
-      "problemMatcher": ["$rustc"],{% if crate_type == "lib" %}
-      "group": "build",{% endif %}
+      "problemMatcher": ["$rustc"],
+      "group": "build",
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -79,39 +82,7 @@
         "focus": true,
         "clear": true
       }
-    },{% if crate_type != "lib" %}
-    {
-      "label": "Run release",
-      "detail": "Runs binary in release mode",
-      "type": "shell",
-      "command": "cargo run --release --bin {{project-name}}",
-      "problemMatcher": ["$rustc"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true,
-        "focus": true
-      }
     },
-    {
-      "label": "Run debug",
-      "detail": "Runs binary in debug mode",
-      "type": "shell",
-      "command": "cargo run --bin {{project-name}}",
-      "problemMatcher": ["$rustc"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "panel": "shared",
-        "showReuseMessage": true,
-        "clear": true,
-        "focus": true
-      }
-    },{% endif %}
     {
       "label": "Update",
       "detail": "Update dependencies (Cargo.lock)",

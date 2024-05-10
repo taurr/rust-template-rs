@@ -14,7 +14,10 @@
         }
       },
       "problemMatcher": ["$rustc"],
-      "group": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -79,7 +82,7 @@
         "focus": true,
         "clear": true
       }
-    },{% if crate_type != "lib" %}
+    },
     {
       "label": "Run release",
       "detail": "Runs binary in release mode",
@@ -111,7 +114,7 @@
         "clear": true,
         "focus": true
       }
-    },{% endif %}
+    },
     {
       "label": "Update",
       "detail": "Update dependencies (Cargo.lock)",

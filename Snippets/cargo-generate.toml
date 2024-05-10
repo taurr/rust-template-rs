@@ -1,6 +1,7 @@
 [template]
 sub_templates = [
-    "StateMachine",
+    "ASync-StateMachine",
+    "Sync-StateMachine",
     "Changelog-and-licenses",
     "Github Specific",
 ]
