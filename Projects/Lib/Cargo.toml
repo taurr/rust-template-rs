@@ -100,6 +100,7 @@ missing_debug_implementations = "deny"
 missing_docs = "warn"
 
 [lints.clippy]
+undocumented_unsafe_blocks = "forbid"
 unwrap_used = "deny"
 unwrap_in_result = "deny"
 expect_used = "warn"
